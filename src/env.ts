@@ -3,7 +3,9 @@ import { z } from "zod/v4";
 
 export const env = createEnv({
   server: {
-    LIARA_API_KEY: z.string(),
+    NODE_ENV: z.enum(["development", "production"]),
+    BASE_URL: z.url(),
+    OPENAI_API_KEY: z.string(),
   },
   experimental__runtimeEnv: process.env,
   emptyStringAsUndefined: true,
